@@ -15,7 +15,7 @@ import { DeleteUserDTO } from './dto/delete-user.dto';
 @ApiTags('Users')
 @Controller({ path: 'users', version: ['v1'] })
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
@@ -35,7 +35,7 @@ export class UserController {
 
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
-  @ApiOperation({ summary: 'User delete ' })
+  @ApiOperation({ summary: 'User delete' })
   @ApiResponse({ status: 201, description: 'Successfully requested.' })
   async delete(@Body() { id }: DeleteUserDTO) {
     return this.userService.delete(id);
